@@ -1,0 +1,12 @@
+FROM alpine:3.11
+ENV GOSU_VERSION 1.12
+RUN apk add --no-cache --update-cache \
+    bash \
+    net-tools \
+    curl \
+    libc6-compat \
+    tzdata \
+  && rm -rf /var/cache/apk/*; \
+     rm -f /bin/sh; \
+     ln -s /bin/bash /bin/sh; \
+     cp -f  /usr/share/zoneinfo/Asia/Shanghai /etc/localtime;
